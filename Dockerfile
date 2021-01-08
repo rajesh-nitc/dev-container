@@ -19,5 +19,3 @@ RUN set -xe && \
 # COPY entrypoint.sh /entrypoint.sh
 # RUN chmod +x ./entrypoint.sh
 # ENTRYPOINT ["./entrypoint.sh"]
-
-# docker run -d -v C:\Users\rajesh.gupta\Work\shared:/shared my-image bash
