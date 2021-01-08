@@ -1,8 +1,10 @@
 FROM gcr.io/google.com/cloudsdktool/cloud-sdk:latest
+LABEL maintainer "Rajesh Gupta <rajesh.nitc@gmail.com>"
 
 ARG TERRAFORM_VERSION=0.14.4
 
-RUN apt-get update && \
+RUN set -xe && \
+    apt-get update && \
     # install packages
     apt-get install -y unzip && \ 
     # install terraform
@@ -12,5 +14,9 @@ RUN apt-get update && \
     # update ca-certificates
     openssl s_client -showcerts -servername github.com -connect github.com:443 </dev/null 2>/dev/null | sed -n -e '/BEGIN\ CERTIFICATE/,/END\ CERTIFICATE/ p'  > github-com.pem && \
     cat github-com.pem | tee -a /etc/ssl/certs/ca-certificates.crt
+
+# COPY entrypoint.sh /entrypoint.sh
+# RUN chmod +x ./entrypoint.sh
+# ENTRYPOINT ["./entrypoint.sh"]
 
 # docker run -d -v C:\Users\rajesh.gupta\Work\shared:/shared my-image bash
