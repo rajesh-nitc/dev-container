@@ -1,6 +1,6 @@
-## dev-image
+## local-image
 
-Run development container:
+Run development container locally:
 ```
-docker run --name dev -t -d -v C:\Users\rajesh.gupta\Work\shared:/home/admin/shared my-image
+docker run --name my-container -t -d -v C:\Users\rajesh.gupta\Work\shared:/home/admin/shared my-image
 ```
