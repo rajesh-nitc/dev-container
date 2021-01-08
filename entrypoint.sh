@@ -1,4 +1,5 @@
 #!/bin/bash
 set -e
-echo "Running: terraform $@"
-terraform "$@"
+echo "Args passed: $@"
+# echo "Running: terraform $@"
+# terraform "$@"

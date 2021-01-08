@@ -16,6 +16,6 @@ RUN set -xe && \
     cat github-com.pem | tee -a /etc/ssl/certs/ca-certificates.crt && \
     rm github-com.pem
 
-# COPY entrypoint.sh /entrypoint.sh
-# RUN chmod +x ./entrypoint.sh
-# ENTRYPOINT ["./entrypoint.sh"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
