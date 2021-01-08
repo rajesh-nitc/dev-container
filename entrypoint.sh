@@ -1,5 +1,6 @@
 #!/bin/bash
-set -e
-echo "Args passed: $@"
-# echo "Running: terraform $@"
-# terraform "$@"
+
+set -xe
+
+echo "The arguments are: $@"
+echo "No. of arguments: $#"

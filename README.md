@@ -1,5 +1,6 @@
 ## dev-image
-To setup the development environment in a container
+
+Run development container:
 ```
-docker run --name dev -t -d -v C:\Users\rajesh.gupta\Work\shared:/shared my-image
+docker run --name dev -t -d -v C:\Users\rajesh.gupta\Work\shared:/home/admin/shared my-image
 ```

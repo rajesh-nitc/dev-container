@@ -6,7 +6,10 @@ ARG TERRAFORM_VERSION=0.14.4
 RUN set -xe && \
     apt-get update && \
     # install packages
-    apt-get install -y unzip && \ 
+    apt-get install -y \
+    unzip \
+    jq \
+    sudo && \ 
     # install terraform
     curl -k https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip > terraform_linux_amd64.zip && \
     unzip terraform_linux_amd64.zip && mv terraform /usr/local/bin/ && \
@@ -16,6 +19,10 @@ RUN set -xe && \
     cat github-com.pem | tee -a /etc/ssl/certs/ca-certificates.crt && \
     rm github-com.pem
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x ./entrypoint.sh
-ENTRYPOINT ["./entrypoint.sh"]
+RUN useradd -ms /bin/bash admin && echo "admin:admin" | chpasswd && adduser admin sudo
+USER admin
+WORKDIR /home/admin
+
+# COPY entrypoint.sh ./entrypoint.sh
+# RUN chmod +x ./entrypoint.sh
+# ENTRYPOINT ["./entrypoint.sh"]
