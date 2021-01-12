@@ -10,7 +10,8 @@ RUN set -xe && \
     unzip \
     jq \
     sudo \
-    net-tools && \ 
+    net-tools \
+    dos2unix && \ 
     # install terraform
     curl -k https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip > terraform_linux_amd64.zip && \
     unzip terraform_linux_amd64.zip && mv terraform /usr/local/bin/ && \
