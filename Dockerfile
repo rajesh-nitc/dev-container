@@ -27,7 +27,9 @@ RUN set -xe && \
     cat github-com.pem | tee -a /etc/ssl/certs/ca-certificates.crt && \
     rm github-com.pem
 
-RUN useradd -ms /bin/bash rajesh && echo "rajesh:rajesh" | chpasswd && adduser rajesh sudo
+RUN useradd -ms /bin/bash rajesh && echo "rajesh:rajesh" | chpasswd && adduser rajesh sudo && \
+    sed -i "s/^#*\s*force_color_prompt=yes/force_color_prompt=yes/g" /home/rajesh/.bashrc
+
 USER rajesh
 WORKDIR /home/rajesh
 

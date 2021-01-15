@@ -1,3 +1,4 @@
+Dockerfile eol=lf
 *.ps1 text eol=crlf
 *.txt text eol=crlf
 *.gitignore text eol=lf
