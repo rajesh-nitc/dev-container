@@ -12,7 +12,7 @@ RUN set -xe && \
     unzip \
     jq \
     sudo \
-    net-tools \
+    dnsutils \
     dos2unix \
     nano && \ 
     # install terraform
